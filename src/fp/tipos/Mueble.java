@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import fp.utiles.Checkers;
 
-public class muebles {
+public class Mueble {
 	
 	private Integer id;				//identificador del mueble			1-integer
 	private String nombre;			//nombre del mueble					2-string
@@ -39,11 +39,9 @@ public class muebles {
 	
 	//Este es el primer constructor, que incluye las medidas del mueble(anchura, altura y profundidad)
 	
-	public muebles(Integer id, String nombre, Categoria categoria, Float precio, Float precioAnterior,
+	public Mueble(Integer id, String nombre, Categoria categoria, Float precio, Float precioAnterior,
 			Boolean online, String diseñador, Integer anchura,
 			Integer altura, Integer profundidad, LocalDate fecha) {
-		
-		super();
 		
 		this.id = id;
 		this.nombre = nombre;
@@ -52,9 +50,9 @@ public class muebles {
 		this.precioAnterior = precioAnterior;
 		this.online = online;
 		this.diseñador = diseñador;
-		Checkers.check("Profundidad no válida", profundidad != null && profundidad > 0);
-		Checkers.check("Altura no válida", altura != null && altura > 0);
-		Checkers.check("Anchura no válida", anchura != null && anchura > 0);
+		Checkers.check("Profundidad no válida", profundidad == null || profundidad > 0);
+		Checkers.check("Altura no válida", altura == null || altura > 0);
+		Checkers.check("Anchura no válida", anchura == null || anchura > 0);
 		this.profundidad = profundidad;
 		this.altura = altura;
 		this.anchura = anchura;
@@ -64,7 +62,7 @@ public class muebles {
 	
 	//Este es el segundo constructor, que NO incluye las medidas del mueble, ya que en el CSV hay algunas medidas que no están
 	
-	public muebles(Integer id, String nombre, Categoria categoria, Float precio, Float precioAnterior,
+	public Mueble(Integer id, String nombre, Categoria categoria, Float precio, Float precioAnterior,
 			Boolean online, String diseñador, LocalDate fecha) {
 		
 		super();
@@ -94,13 +92,11 @@ public class muebles {
 	}
 	
 	public List<Integer> getDimensiones() {
-		List<Integer> res = null;
-		if (getAnchura()!= null && getAltura()!= null && getProfundidad()!= null) {
-			res = new LinkedList<Integer>();
-			res.add(anchura);
-			res.add(altura);
-			res.add(profundidad);
-		}
+		List<Integer> res = new LinkedList<Integer>();
+		res.add(anchura);
+		res.add(altura);
+		res.add(profundidad);
+		
 		return res;
 	}
 	 
@@ -165,7 +161,7 @@ public class muebles {
 	public String toString() {
 		return "Estos son los datos del mueble: id=" + id + ", nombre del mueble=" + nombre + ", categoria=" + categoria + ", precio=" + precio
 				+ ", precio anterior=" + precioAnterior + ", se vende online=" + online + ", nombre del diseñador=" + diseñador
-				+ ", fecha de salida=" + fecha + ", dimensiones(anchura, altura, profundidad)=" + getDimensiones() + ", volumen=" + getVolumen();
+				+ ", fecha de salida=" + fecha + ", dimensiones(anchura, altura, profundidad)=" + getDimensiones() + ", volumen=" + getVolumen()+"cm^3"+ "\n";
 	}
 
 	//El hashCode y el equals, que usan las medidas, el diseñador, el id, y el nombre
@@ -183,7 +179,7 @@ public class muebles {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		muebles other = (muebles) obj;
+		Mueble other = (Mueble) obj;
 		return Objects.equals(altura, other.altura) && Objects.equals(anchura, other.anchura)
 				&& Objects.equals(diseñador, other.diseñador) && Objects.equals(id, other.id)
 				&& Objects.equals(nombre, other.nombre) && Objects.equals(profundidad, other.profundidad);
@@ -191,7 +187,7 @@ public class muebles {
 
 	//El compareTo, cuyo orden es el ID, el nombre, el nombre del diseñador, y las medidas(que tienen checkers para que sean válidas)
 	
-	public int compareTo(muebles mueble ) {
+	public int compareTo(Mueble mueble ) {
 		int res = (getId().compareTo(mueble.getId()));
 		if (res==0) {
 			res = (getNombre().compareTo(mueble.getNombre()));

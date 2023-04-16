@@ -80,38 +80,39 @@ Hay un tipo auxiliar que es caja, recibe tres parámetros que son las medidas de
 -	_contiene_: Este método está en el tipo caja, y sirve para comprobar si un mueble cabe dentro de la caja creada. Devuelve un Boolean.
 
 ### Factoría
-Descripción breve de la factoría.
+La factoría lee el csv y asigna cada línea a un objeto Mueble, tras esto, devuelve una lista muebles con todos los objetos del csv .
 
-- _método 1_: Descripción del método 1.
--	_método 2_: Descripción del método 2.
+-parseMueble_: Es la función principal, crea los objetos Mueble. Para esto, hace uso de otras funciones que parsean los datos de las líneas del csv cuando es necesario.
+-parseInt_: Esta función parsea Integers. En caso de que la string esté vacía, le asigna null.
+-parsearFecha_: Parsea la fecha de salida del mueble de un string a un LocalDate. Usa el formato "dd/MM/yyyy".
+-parseBoolean_: Parsea de string a boolean si se vende online el mueble.
+-leeMuebles_: Se encarga de leer el csv.
+-parsearCategoria_: Parsea de string a Categoria, depende de lo que ponga en el csv, se le asigna una u otra.
 
 ### Tipo Contenedor
 
-Descripción breve del tipo contenedor.
+El tipo contenedor ikea consta de una propiedad, muebles, que es una lista con los objetos mueble del csv.
 
 **Propiedades**:
 
-- _propiedad1_, de tipo \<Tipo1\>, consultable. 
-- _propiedad2_, de tipo \<Tipo2\>, consultable y modificable. 
-- ...
-- 
+- _muebles_, de tipo \<List<Mueble>\>, consultable. 
+
 **Constructores**: 
 
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
-
-**Restricciones**:
+- IkeaImpl: Este constructor asigna a muebles una lista vacía.
+- IkeaImpl: Este constructor asigna a muebles una lista de muebles dada.
  
-- R1: Descripción de la restricción 1.
-- R2: Descripción de la restricción 2.
-- ...
-- 
-**Criterio de igualdad**: Describir el criterio de igualdad
-
-**Criterio de ordenación**: Describir el criterio de ordenación (si lo hay).
+**Criterio de igualdad**: Son iguales si los objetos de la lista son iguales y viceversa.
 
 **Otras operaciones**:
  
--	_método 1_: Descripción del método 1.
-- ...
+-	_toString_: Pasa el tipo contenedor a formato string.
+-	_numElementos_: Devuelve el número de elementos de la lista.
+-	_añadir_: Añade un mueble dado como argumento a la lista.
+-	_añadirColección_: Añade una colección de muebles dada como argumento a la lista.
+-	_eliminar_: Elimina un mueble dado como argumento de la lista.
+-	_existeMueble_: Devuelve true si el nombre del mueble que se introduce como argumento figura en la lista, y viceversa.
+-	_mediaPreciosPorCategoria_: Devuelve la media del precio de los muebles de una categoría introducida como argumento.
+-	_filtrarMasBaratoQue_: Devuelve una lista de objetos mueble que cumplan que el precio sea menor al del float introducido.
+-	_agruparCategorias_: Decuelve un diccionario con clave el nombre de las categorías y valor una lista de objetos mueble que pertenecen a esta.
+-	_contarCategorias_: Devuelve un diccionario con clave el nombre de las categorías y valor el número de muebles de cada categoría.
