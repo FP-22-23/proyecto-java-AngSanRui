@@ -84,7 +84,7 @@ public class Mueble {
 	//Variables derivadas(volumen y dimensiones)
 	
 	public Integer getVolumen() {
-		Integer res = null;
+		Integer res = 0;
 		if (getAnchura()!= null && getAltura()!= null && getProfundidad()!= null) {
 			res = getAnchura()*getAltura()*getProfundidad();
 		}

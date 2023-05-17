@@ -116,3 +116,11 @@ El tipo contenedor ikea consta de una propiedad, muebles, que es una lista con l
 -	_filtrarMasBaratoQue_: Devuelve una lista de objetos mueble que cumplan que el precio sea menor al del float introducido.
 -	_agruparCategorias_: Decuelve un diccionario con clave el nombre de las categorías y valor una lista de objetos mueble que pertenecen a esta.
 -	_contarCategorias_: Devuelve un diccionario con clave el nombre de las categorías y valor el número de muebles de cada categoría.
+-	_masGrandeCategoria_: Devuelve el nombre del mueble con mayor volumen de todosaquellos que pertenezcan a una categoría dada.
+-	_masCarosAño_: Devuelve una lista de muebles que hayan sido comercializados en un año dado. Esta lista está ordenada de muebles más caros a más baratos.
+-	_categoriasDeDiseñadores_: Devuelve un map cuyas claves son los diferentes diseñadores o conjuntos de diseñadores y cuyos valores son listas con las categorías de muebles que han diseñado.
+-	_menorPrecioPorCategoria_: Devuelve un map cuyas claves son las diferentes categorías y cuyos valores son el precio más barato por el que puedes comprar unmueble de esa categoría.
+-	_eneMueblesGrandesPorCategoria_: Devuelve un SortedMap cuyas claves son las diferentes categorías y cuyos valores son una lista de n muebles de esa categoría ordenada de mayor a menor volumen.
+-	_categoriaMediaMasCara_: Calcula y devuelve la categoría cuya media de precios es mayor. Para ello antes calcula un map con las categorías y las medias de sus precios, y luego coje la clave que tiene mayor valor.
+
+ 

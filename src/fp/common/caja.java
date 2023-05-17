@@ -10,8 +10,7 @@ public record caja(Integer anchura, Integer altura, Integer profundidad) {
 	//-por si alguno de los valores del mueble no tiene sentido(si es null o cero o negativo)repite
 	
 	public Boolean contiene(Mueble mueble) {
-		Checkers.check("Al mueble le falta una o más dimensiones", (mueble.getAltura() != null && mueble.getAnchura() != null && mueble.getProfundidad() != null 
-																	&& mueble.getAltura() >0 && mueble.getAnchura() >0 && mueble.getProfundidad() > 0));
+		Checkers.check("Al mueble le falta una o más dimensiones", (mueble.getAltura() >0 && mueble.getAnchura() >0 && mueble.getProfundidad() > 0));
 		return	(anchura >= mueble.getAnchura() && altura >= mueble.getAltura() 
 				&& profundidad >= mueble.getProfundidad());
 	}
